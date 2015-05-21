@@ -1,3 +1,7 @@
+// External crates used by the sub-modules
+extern crate num;
+extern crate primal;
+
 // Import the sub-modules
 pub mod factorize;
 pub mod palindrome;
