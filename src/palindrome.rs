@@ -38,27 +38,11 @@ mod tests {
 	use super::is_palindrome;
 
 	#[test]
-	fn palin_zero() {
+	fn test_palin() {
 		assert_eq!(is_palindrome(0), true);
-	}
-
-	#[test]
-	fn palin_one() {
 		assert_eq!(is_palindrome(1), true);
-	}
-
-	#[test]
-	fn palin_false() {
 		assert_eq!(is_palindrome(576), false);
-	}
-
-	#[test]
-	fn palin_true() {
 		assert_eq!(is_palindrome(747), true);
-	}
-
-	#[test]
-	fn palin_fourdig() {
 		assert_eq!(is_palindrome(2422), false);
 	}
 }
