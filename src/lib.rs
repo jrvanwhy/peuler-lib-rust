@@ -8,3 +8,4 @@ pub mod palindrome;
 
 // Provide a nicer API
 pub use self::palindrome::{digits,is_palindrome};
+pub use self::factorize::pollards_rho_i64;
