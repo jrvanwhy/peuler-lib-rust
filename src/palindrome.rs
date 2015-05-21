@@ -17,6 +17,19 @@ pub fn digits(num: u32) -> Vec<u8> {
 	}
 }
 
+// Converts a vector of digits into an unsigned integer.
+// This is recursive
+pub fn digits_to_int(mut digs: Vec<u8>) -> u32 {
+	// Termination -- if digs has length 1, compute the output directly
+	if digs.len() == 1 {
+		return digs.pop().unwrap() as u32;
+	}
+
+	// Recurse downwards
+	let lastdig = digs.pop().unwrap() as u32;
+	10*digits_to_int(digs) + lastdig
+}
+
 // Checks whether the given unsigned integer is a palindrome
 pub fn is_palindrome(num: u32) -> bool {
 	// Break its digits out into a vector
