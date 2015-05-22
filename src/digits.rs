@@ -55,6 +55,38 @@ pub fn is_palindrome(num: u32) -> bool {
 	is_palindrome_base(num, 10)
 }
 
+// Check if a given number is 'pandigital'
+// (this specifically checks 9-pandigital)
+pub fn is_pandigital(num: u32) -> bool {
+	// Confirm it's not too large
+	// (otherwise we might exceed our vector bounds)
+	if num > 987654321 {
+		return false;
+	}
+
+	// Summation map. One-indexed (hence the 0 at the front)
+	// for performance
+	let s_map = [0, 1, 2, 4, 8, 16, 32, 64, 128, 256];
+
+	// Make num a usize so that d1...d9 are all usizes as well.
+	let num = num as usize;
+
+	// Grab all the digits
+	let d1 = num % 10;
+	let d2 = num/10 % 10;
+	let d3 = num/100 % 10;
+	let d4 = num/1000 % 10;
+	let d5 = num/10000 % 10;
+	let d6 = num/100000 % 10;
+	let d7 = num/1000000 % 10;
+	let d8 = num/10000000 % 10;
+	let d9 = num/100000000 % 10;
+
+	// Compare by summing the digit map.
+	// In binary, this actually forms a bit field
+	s_map[d1] + s_map[d2] + s_map[d3] + s_map[d4] + s_map[d5] + s_map[d6] + s_map[d7] + s_map[d8] + s_map[d9] == 511
+}
+
 // Unit tests for is_palindrome
 #[cfg(test)]
 mod tests {
