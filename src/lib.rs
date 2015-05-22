@@ -7,5 +7,5 @@ pub mod factorize;
 pub mod palindrome;
 
 // Provide a nicer API
-pub use self::palindrome::{digits_base,digits_to_int,is_palindrome,is_palindrome_base};
+pub use self::palindrome::{digits,digits_base,digits_to_int,is_palindrome,is_palindrome_base};
 pub use self::factorize::pollards_rho_i64;
